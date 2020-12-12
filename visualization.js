@@ -41,19 +41,18 @@
 
         svg.selectAll(".state").data(states).enter().append("path").attr("class", "state").attr("d", path)
 
-        // console.log(abbreviations)
-        // svg.selectAll(".abbreviation").data(abbreviations).enter().append("text")
-        // .text(function(d){
-        //     return d.location
-        // })
-        // .attr("cx", function(d) {
-        //     var coords = projection([d.long, d.lat])
-        //     return coords[0]
-        // })
-        // .attr("cy", function(d) {
-        //     var coords = projection([d.long, d.lat])
-        //     return coords[1]
-        // });
+        svg.selectAll(".abbreviation").data(abbreviations).enter().append("text")
+        .text(function(d){
+            return d.location
+        })
+        .attr("cx", function(d) {
+            var coords = projection([d.long, d.lat])
+            return coords[0]
+        })
+        .attr("cy", function(d) {
+            var coords = projection([d.long, d.lat])
+            return coords[1]
+        });
     }
     
 }) ();
