@@ -41,6 +41,7 @@
 
         svg.selectAll(".state").data(states).enter().append("path").attr("class", "state").attr("d", path)
 
+        console.log(abbreviations)
         svg.selectAll(".abbreviation").data(abbreviations).enter().append("text")
         .text(function(d){
             return d.location
