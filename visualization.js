@@ -47,10 +47,10 @@
             return d.location
         })
         .attr("cx", function(d) {
-            return d.long
+            return d.long * margin.width
         })
         .attr("cy", function(d) {
-            return d.lat
+            return d.lat * margin.height
         })
     }
     
