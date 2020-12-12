@@ -52,7 +52,7 @@
         .attr("cy", function(d) {
             var coords = projection([d.long, d.lat])
             return coords[1]
-        });
+        })
     }
     
 }) ();
