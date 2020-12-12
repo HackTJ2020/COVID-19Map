@@ -47,10 +47,12 @@
             return d.location
         })
         .attr("cx", function(d) {
-            return d.long * margin.width
+            var coord = projection(d.long)
+            return coord
         })
         .attr("cy", function(d) {
-            return d.lat * margin.height
+            var coord = projection(d.lat)
+            return coord
         })
     }
     
