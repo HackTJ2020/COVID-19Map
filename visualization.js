@@ -24,7 +24,7 @@
     .attr("width", width + margin.left + margin.right).append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.queue().defer(d3.json, "https://alpes.cloud/up/85a75c04c899a39451713622f305ba86.json").defer(d3.csv, "abbreviations.csv").await(ready)
+    d3.queue().defer(d3.json, "https://alpes.cloud/up/85a75c04c899a39451713622f305ba86.json").defer(d3.csv, "csvFiles/abbreviations.csv").await(ready)
 
     var projection = d3.geoAlbersUsa().translate([width/2, height/2]).scale(window.innerWidth)
 
