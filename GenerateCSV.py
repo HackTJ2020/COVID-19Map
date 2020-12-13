@@ -10,8 +10,8 @@ def generateCSV():
             "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
 
-    #for state in state_names:
-    #    create_CSV(state)
+    for state in state_names:
+        create_CSV(state)
     for state in state_names:
         data = np.genfromtxt("csvFiles/" + state + "_covrec.csv", delimiter=',')
         plt.title(state+' COVID-19 Cases')
