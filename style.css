@@ -5,12 +5,22 @@
     font-family: "Comic Sans";
     text-align: center;
 }
+.bottom {
+  background-color: #d79551;
+  overflow: hidden;
+  font-family: sans-serif;
+  bottom: 0;
+  width: 100%;
+}
 .container{
     width: 100%;
-    height: 125%;
+    height: 130%;
     background: #545E75;
 }
 .menu{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     list-style-type: none;
     margin: 0;
     padding: 5;
