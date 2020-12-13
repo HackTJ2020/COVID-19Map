@@ -23,20 +23,20 @@ def predict_Graphs(state):
     #y.plot(figsize=(15,6))
     #plt.show()
     rcParams['figure.figsize'] = 18, 8
-    print(y)
+    #print(y)
     decomposition = sm.tsa.seasonal_decompose(y, model='additive', period=5)
-    decomposition.plot()
-    plt.savefig("Graphs/"+state+"decompose.jpg")
-    plt.close()
+    #decomposition.plot()
+    #plt.savefig("Graphs/"+state+"decompose.jpg")
+    #plt.close()
 
     p = d = q = range(0, 2)
     pdq = list(itertools.product(p, d, q))
     seasonal_pdq = [(x[0], x[1], x[2], 2) for x in list(itertools.product(p, d, q))]
-    print('Examples of parameter combinations for Seasonal ARIMA...')
-    print('SARIMAX: {} x {}'.format(pdq[1], seasonal_pdq[1]))
-    print('SARIMAX: {} x {}'.format(pdq[1], seasonal_pdq[2]))
-    print('SARIMAX: {} x {}'.format(pdq[2], seasonal_pdq[3]))
-    print('SARIMAX: {} x {}'.format(pdq[2], seasonal_pdq[4]))
+    #print('Examples of parameter combinations for Seasonal ARIMA...')
+    #print('SARIMAX: {} x {}'.format(pdq[1], seasonal_pdq[1]))
+    #print('SARIMAX: {} x {}'.format(pdq[1], seasonal_pdq[2]))
+    #print('SARIMAX: {} x {}'.format(pdq[2], seasonal_pdq[3]))
+    #print('SARIMAX: {} x {}'.format(pdq[2], seasonal_pdq[4]))
     #finds best parameters that yields best performance:
     warnings.filterwarnings("ignore")
     res = 10000
@@ -49,10 +49,10 @@ def predict_Graphs(state):
                                                 enforce_stationarity=False, 
                                                 enforce_invertibility=False)
                 results = mod.fit(disp=0)
-                print('ARIMA{}x{}12 - AIC:{}'.format(param, param_seasonal, results.aic))
+                #print('ARIMA{}x{}12 - AIC:{}'.format(param, param_seasonal, results.aic))
                 if results.aic<res:
                     res = results.aic
-                    print(res)
+                    #print(res)
                     par = param
                     pars = param_seasonal
 
@@ -64,7 +64,7 @@ def predict_Graphs(state):
                                     enforce_stationarity=False,
                                     enforce_invertibility=False)
     results = mod.fit(disp=0)
-    print(results.summary().tables[1])
+    #print(results.summary().tables[1])
     results.plot_diagnostics(figsize=(16, 8))
     plt.savefig("Graphs/"+state+"graphs.jpg")
     plt.close()
@@ -89,8 +89,8 @@ def predict_Graphs(state):
     y_forecasted = pred.predicted_mean
     y_truth = y['2020-07-15':]
     mse = ((y_forecasted - y_truth) ** 2).mean()
-    print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
-    print('The Root Mean Squared Error of our forecasts is {}'.format(round(np.sqrt(mse), 2)))
+    #print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
+    #print('The Root Mean Squared Error of our forecasts is {}'.format(round(np.sqrt(mse), 2)))
     pred_uc = results.get_forecast(steps=10)
     pred_ci = pred_uc.conf_int()
     ax = y.plot(label='observed', figsize=(14, 7))
@@ -104,4 +104,4 @@ def predict_Graphs(state):
     plt.savefig("Graphs/"+state+"Future.jpg")
     plt.close()
 
-predict_Graphs("VA")
+#predict_Graphs("VA")
