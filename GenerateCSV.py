@@ -8,9 +8,10 @@ state_names = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
+
 for state in state_names:
     create_CSV(state)
 for state in state_names:
-    data = np.genfromtxt("csvFiles/" +  + "_covrec.csv", delimiter=',')
+    data = np.genfromtxt("csvFiles/" + state + "_covrec.csv", delimiter=',')
     plt.plot(data)
     plt.savefig("imgFiles/" + state + "covid.jpg")
