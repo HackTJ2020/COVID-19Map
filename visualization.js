@@ -49,6 +49,8 @@
             return d.location
         })
         .attr("cx", function(d) {
+            console.log(d.long)
+            console.log(d.lat)
             var coords = projection([d.long,d.lat])
             console.log(coords)
             return coords[1]
