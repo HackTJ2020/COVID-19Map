@@ -20,8 +20,7 @@ def create_CSV(state):
                 string = string[:-4]
                 writer.writerow([date, float(string)])
             date= date+datetime.timedelta(days=1)
-
-
+create_CSV("VA")
 #for state in state_names:
 #    final_url = target_url+date+"&state="+state
 #    data = urllib.request.urlopen(final_url)
