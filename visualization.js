@@ -50,6 +50,7 @@
         })
         .attr("cx", function(d) {
             var coords = projection([d.long,d.lat])
+            console.log(coords)
             return coords[1]
         })
         .attr("cy", function(d) {
