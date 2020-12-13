@@ -28,6 +28,8 @@
 
     var projection = d3.geoAlbersUsa().translate([width/2, height/2]).scale(window.innerWidth)
 
+    console.log(projection)
+
     var path = d3.geoPath().projection(projection)
 
     var states
@@ -47,8 +49,8 @@
             return d.location
         })
         .attr("cx", function(d) {
-            var coord = projection(d.long)
-            return coord
+            var coords = projection([d.long,d.lat])
+            return coords[1]
         })
         .attr("cy", function(d) {
             var coord = projection(d.lat)
