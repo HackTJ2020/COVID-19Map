@@ -1,4 +1,7 @@
 from CreateCSV import create_CSV
+import numpy as np
+import matplotlib.pyplot as plt
+
 state_names = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
@@ -7,3 +10,7 @@ state_names = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
 
 for state in state_names:
     create_CSV(state)
+for state in state_names:
+    data = np.genfromtxt("csvFiles/" +  + "_covrec.csv", delimiter=',')
+    plt.plot(data)
+    plt.savefig("imgFiles/" + state + "covid.jpg")
