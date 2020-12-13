@@ -46,16 +46,20 @@
         console.log(abbreviations)
         svg.selectAll(".abbreviation").data(abbreviations).enter().append("text")
         .text(function(d){
+            console.log(d.location)
             return d.location
         })
         .attr("cx", function(d) {
+            console.log(d.long)
             var coords = projection([d.long,d.lat])
             console.log(coords)
             return coords[1]
         })
         .attr("cy", function(d) {
-            var coord = projection(d.lat)
-            return coord
+            console.log(d.lat)
+            var coords = projection([d.long,d.lat])
+            console.log(coords)
+            return coords[1]
         })
     }
     
