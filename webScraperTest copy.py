@@ -29,6 +29,6 @@ with open("virginia_covrec.csv", 'w', newline='') as file:
             string = line.decode()
             string = string[14:]
             string = string[:-4]
-            writer.writerow([str(date), float(string)])
+            writer.writerow([date, float(string)])
         date= date+datetime.timedelta(days=1)
         x+=1
