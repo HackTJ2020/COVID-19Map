@@ -17,7 +17,14 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Alabama - AL</a>
+            <a class="trigger_popup">Alabama - AL</a>
+            <div class="hover_bkgr_fricc">
+                <span class="helper"></span>
+                <div>
+                    <div class="popupCloseButton">&times;</div>
+                    <p>Add any HTML content<br />inside the popup box!</p>
+                </div>
+            </div>
             <a href="#">Alaska - AK</a>
             <a href="#">Arizona - AZ</a>
             <a href="#">Arkansas - AR</a>
@@ -91,7 +98,17 @@
         
         <script src="visualization.js"></script>
 
-
+        $(window).load(function () {
+            $(".trigger_popup_fricc").click(function(){
+               $('.hover_bkgr_fricc').show();
+            });
+            $('.hover_bkgr_fricc').click(function(){
+                $('.hover_bkgr_fricc').hide();
+            });
+            $('.popupCloseButton').click(function(){
+                $('.hover_bkgr_fricc').hide();
+            });
+        });
 
     </div>
 
