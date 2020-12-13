@@ -66,7 +66,7 @@ def predict_Graphs(state):
     results = mod.fit(disp=0)
     #print(results.summary().tables[1])
     results.plot_diagnostics(figsize=(16, 8))
-    plt.savefig("Graphs/"+state+"graphs.jpg")
+    plt.savefig("imgFiles/"+state+"graphs.jpg")
     plt.close()
 
     pred = results.get_prediction(start=pd.to_datetime('2020-07-15'), dynamic=False)
@@ -83,7 +83,7 @@ def predict_Graphs(state):
     ax.set_ylabel('New Cases')
     plt.legend()
 
-    plt.savefig("Graphs/"+state+"prediction.jpg")
+    plt.savefig("imgFiles/"+state+"prediction.jpg")
     plt.close()
 
     y_forecasted = pred.predicted_mean
@@ -101,7 +101,8 @@ def predict_Graphs(state):
     ax.set_xlabel('Date')
     ax.set_ylabel('New Cases')
     plt.legend()
-    plt.savefig("Graphs/"+state+"Future.jpg")
+    plt.title(state+" COVID-19 Future Projections")
+    plt.savefig("imgFiles/"+state+"Future.jpg")
     plt.close()
 
 #predict_Graphs("VA")
